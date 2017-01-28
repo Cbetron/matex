@@ -33,7 +33,7 @@ Installation (Internetverbindung notwendig)
 
     git clone --recursive https://bitbucket.org/Nikch/matex.git
 
-#### II) Automatische Installation mithilfe der setup.py
+#### II) Automatische Installation mithilfe der setup.py (zurzeit etwas Experimentell)
 
 
 > 3: `setup.py` mit python3 ausführen

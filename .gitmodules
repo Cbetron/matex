@@ -1,0 +1,4 @@
+[submodule "syntaxnet"]
+	path = textfeatures/parsing/models
+	url = https://github.com/tensorflow/tensorflow.git
+

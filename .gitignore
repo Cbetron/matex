@@ -1,0 +1,12 @@
+__pycache__/
+.idea/
+utils/__pycache__/
+textfeatures/__pycache__/
+textfeatures/databases/__pycache__/
+textfeatures/databases/wordRipper/.idea/
+textfeatures/modules/__pycache__/
+textfeatures/modules/.idea/
+textfeatures/parsing/__pycache__/
+textfeatures/__pycache__/
+ML/__pycache__/
+

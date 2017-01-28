@@ -1,0 +1,12 @@
+NOUN	noun
+ADV	adverb
+.	punctuation
+X	other/foreign/abbreviation/typo/unknown
+PRT	particle/other
+CONJ	conjunction
+NUM	numeral
+DET	determiner
+ADP	adposition
+ADJ	adjective
+PRON	pronoun
+VERB	verb

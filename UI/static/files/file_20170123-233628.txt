@@ -1,0 +1,9 @@
+===ANFANG TEXT===
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea tak
+===ENDE TEXT===
+Ihre Note: 5
+Benutzte Methode: Naive Bayes
+Benutztes Profil: Amerika: 8. Klasse (Note: 1-6)
+Evidence: Not available yet!
+Genauigkeit des Profils: 52.89%
+Datum der Korrektur: Mon Jan 23 23:36:55 2017

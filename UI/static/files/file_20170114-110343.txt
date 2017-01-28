@@ -1,0 +1,9 @@
+===ANFANG TEXT===
+csvd
+===ENDE TEXT===
+Ihre Note: 14
+Benutzte Methode: Naive Bayes mit Faktoren
+Benutztes Profil: Amerika: 8. Klasse
+Evidence: 30
+Genauigkeit des Profils: 60
+Datum der Korrektur: Sat Jan 14 11:03:59 2017

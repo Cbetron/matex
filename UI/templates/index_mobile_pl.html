@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+<style>
+
+p.ex2 {
+    font: 32px arial, sans-serif;
+}
+p.ex1 {
+    font: 15px arial, sans-serif;
+}
+p.ex3 {
+    font: 11px arial, sans-serif;
+}
+
+</style>
+
+    <title>maTex</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+
+    <script src="{{ url_for('static', filename='js/jquery-1.10.2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/hover.zoom.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/hover.zoom.conf.js') }}"></script>
+	<script>function disable()
+		{
+		    if (document.getElementById('txt1').value.length < 250) {
+                return false;
+            }
+            else {
+                document.getElementById('txt1').style.backgroundColor = "#e5e5e5";
+			    document.getElementById('txt1').style.overflow = "hidden";
+			    document.getElementById('txt1').readOnly = true;
+			    document.getElementById('load').style.display = "inline";
+			    document.getElementById('slc1').style.backgroundColor = "#e5e5e5";
+			    document.getElementById('slc2').style.backgroundColor = "#e5e5e5";
+			    document.getElementById('bt1').submit();
+            }
+		}
+	</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url_for('index_pl') }}">maTex </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ url_for('index_pl') }}">Korekcja</a></li>
+            <li><a href="{{ url_for('info_pl') }}">Informacje</a></li>
+            <li><a href="{{ url_for('contact_email_pl') }}">Kontakt</a></li>
+			<li><a href="{{ url_for('static', filename='app/maTex.apk') }}">Pobierz APK</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<!-- +++++ Welcome Section +++++ -->
+	<div id="ww">
+	    <div class="container">
+			<div class="row mt">
+				<div class="col-lg-6 col-lg-offset-3 centered">
+					<h3>maTex - Korekcja Tekstów</h3>
+					<hr>
+					<p>Wypełnij formularz aby wyświetlić ocene</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<table width="100%" border="0" >
+					<thead>
+						<form action="/grade_pl" method="POST">
+						<tr valign="top">
+						<td style="vertical-align:middle" width="50%" height="40%">
+						<fieldset>
+						<center>
+						<legend style="border: none;">Metoda</legend>
+						<select name="Methode" id="slc1" style="padding:1.5px; border-radius:5px;">
+						<option type="radio" id="erste" value="Naiwny Bayes">Naiwny Bayes</option>
+						<option type="radio" id="vierte" value="Filtrowany Naiwny Bayes">Filtrowany Naiwny Bayes</option>
+						</select>
+						</center>
+						</fieldset>
+						</td>
+						</tr>
+						<tr valign="top">
+						<td valign="middle" width="50%" height="40%">
+						<br/>
+						<br/>
+						<fieldset>
+						<center>
+						<legend style="border: none;">Profil</legend>
+						<select name="Profil" id="slc2" style="padding:1.5px; border-radius:5px;">
+						<option type="radio" id="first" value="Ameryka: 8. Klasa (Oceny: 1-6)">Ameryka: 8. Klasa (Oceny: 1-6)</option>
+						<option type="radio" id="second" value="Ameryka: 8. Klasa (Oceny: 0-15)">Ameryka: 8. Klasa (Oceny: 0-15)</option>
+						</select>
+						</center>
+						</fieldset>
+						</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr valign="top">
+						<td colspan="2" width="70%" height="100%">
+						<br>
+						<br>
+						<br>
+						<center>
+						<textarea minlength="250" name="data" style="width: 100%; height: 30em; text-align:centre; resize:none; border: none; border-radius: 6px;" placeholder="Wpisz tekst tutaj" required></textarea>
+						</center>
+						<br>
+						</td>
+						</tr>
+						<td colspan="2" valign="middle" width="33%" height="40%">
+						<center>
+						<img id="load" style="display: none;" align="middle" src="{{ url_for('static', filename='img/loading.gif') }}" alt="Icon" >
+						<br>
+						<br>
+						<button type="submit" id="bt1" class="btn btn-success" onClick="disable();">WYŚLIJ</button>
+						</center>
+						</td>
+						</tr>
+						</form>
+					</tbody>
+					</table>
+				</div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /ww -->
+
+
+	<!-- +++++ Footer Section +++++ -->
+
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4>Programiśći</h4>
+					<p>
+						<a href="mailto:behringer@phaenovum.de">Julian Behringer</a><br/>
+						<a href="mailto:kernbach@phaenovum.de">Nikodem Kernbach</a><br/>
+						<a href="mailto:kreft@phaenovum.de">Raphael Kreft</a>
+					</p>
+				</div><!-- /col-lg-4 -->
+
+				<div class="col-lg-4">
+					<h4>Linki</h4>
+					<p>
+						<a href="http://www.phaenovum.eu/de/" target="_blank">phænovum</a><br/>
+						<a href="{{ url_for('contact_email_pl') }}">Kontakt</a> <br/>
+						<a href="http://www.phaenovum.eu/impressum.html" target="_blank">Impressum</a><br/>
+					</p>
+				</div><!-- /col-lg-4 -->
+
+				<div class="col-lg-4">
+					<h4>Wybór Języka</h4>
+					<p>
+						<a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/de.png') }}" alt="Icon">&nbsp;&nbsp;&nbsp;Niemiecki</a><br/>
+						<a href="{{ url_for('index_en') }}"><img src="{{ url_for('static', filename='img/en-us.png') }}" alt="Icon">&nbsp;&nbsp;&nbsp;Angielski</a><br/>
+						<a href="{{ url_for('index_pl') }}"><img src="{{ url_for('static', filename='img/pl.png') }}" alt="Icon">&nbsp;&nbsp;&nbsp;Polski</a>
+					</p>
+				</div><!-- /col-lg-4 -->
+
+			</div>
+
+		</div>
+	</div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  </body>
+</html>

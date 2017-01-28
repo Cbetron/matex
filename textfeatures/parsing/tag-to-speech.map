@@ -1,0 +1,52 @@
+#	hash (pound)
+$	dollar
+''	closing quote
+-LRB-	opening parenthesis
+-RRB-	closing parenthesis
+,	comma
+.	sentence-ending punctuation
+:	colon or semicolon (or ellipse)
+ADD	email
+AFX	affix
+CC	coordinating conjunction
+CD	cardinal number
+DT	determiner
+EX	existantial (there)
+FW	foreign word
+GW	go with
+HYPH	hyphen
+IN	preposition or subordinating conjunction
+JJ	adjective
+JJR	comparative adjective
+JJS	superlative adjective
+LS	list item marker
+MD	modal verb
+NFP	superfluous punctuation
+NN	singular or mass noun
+NNP	singular proper noun
+NNPS	plural proper noun
+NNS	plural noun
+PDT	predeterminer
+POS	possesive ending
+PRP	personal pronoun
+PRP$	possesive pronoun
+RB	adverb
+RBR	comparative adverb
+RBS	superlative adverb
+RP	particle
+SYM	symbol
+TO	(to)
+UH	interjection
+VB	base form
+VBD	past tense
+VBG	gerund or present participle
+VBN	past participle
+VBP	singular present (not third)
+VBZ	third person singular
+WDT	wh-determiner
+WP	wh-pronoun
+WP$	possesive wh-pronoun
+WRB	wh-adverb
+``	opening quote
+X	other
+XX	unknown

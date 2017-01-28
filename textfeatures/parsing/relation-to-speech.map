@@ -1,0 +1,46 @@
+punct	punctuation
+prep	prepositional modifier
+pobj	object of a preposition
+det	determiner
+nsubj	nominal subject
+nn	noun compound modifier
+amod	adjectival modifier
+ROOT	root of sentence
+dobj	direct object
+aux	auxiliary
+advmod	adverbial modifier
+conj	conjunct
+cc	coordination
+num	numeric modifier
+poss	possesion modifier
+dep	dependent
+ccomp	clausal complement
+cop	copular
+mark	marker
+xcomp	open clausal complement
+rcmod	relative clause modifier
+auxpass	passive auxiliary
+advcl	adverbial clause modifier
+possessive	possesive modifier
+nsubjpass	passive nominal subject
+pcomp	prepositional complement
+appos	appositional modifier
+partmod	participal modifier
+neg	negation modifier
+number	element of compound number
+prt	phrasal verb particle
+quantmod	quantifier phrase modifier
+tmod	temporal modifier
+infmod	infinitival modifier
+npadvmod	noun phrase as adverbial modifier
+parataxis	parataxis
+mwe	multi-word expression
+expl	expletive
+iobj	indirect object
+acomp	adjectivial complement
+discourse	discourse element
+csubj	clausal subject
+predet	predeterminer
+preconj	preconjunct
+goeswith	goes with
+csubjpass	passive clausal subject

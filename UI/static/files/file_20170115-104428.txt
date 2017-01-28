@@ -1,0 +1,9 @@
+===ANFANG TEXT===
+Dear readers, I think that its good and bad to use the computer to much
+===ENDE TEXT===
+Ihre Note: 6
+Benutzte Methode: Naive Bayes ohne Faktoren
+Benutztes Profil: Amerika: 8. Klasse (Note: 1-6)
+Evidence: xx
+Genauigkeit des Profils: 0%
+Datum der Korrektur: Sun Jan 15 10:55:27 2017

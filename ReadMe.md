@@ -25,18 +25,18 @@ Installation (Internetverbindung notwendig)
 ------------
 #### I) Allgemein auszuführen
 
-> 1. Git installieren (Administartorrechte benötigt)
+> 1: Git installieren (Administartorrechte benötigt)
 
     sudo apt-get install git
 
-> 2. Archiv rekursiv(!) klonen
+> 2: Archiv rekursiv(!) klonen
 
     git clone --recursive https://bitbucket.org/Nikch/matex.git
 
 #### II) Automatische Installation mithilfe der setup.py
 
 
-> 3. `setup.py` mit python3 ausführen
+> 3: `setup.py` mit python3 ausführen
 
     cd matex
     sudo python3 setup.py
@@ -51,7 +51,7 @@ und Java JDK 8 noch nicht installiert haben, fügen sie folgende Option hinzu:
 
 #### III) Manuelle Installation (für Fortgeschrittene)
 
-> 3. Wechseln sie in den folgenden Ordner:
+> 3: Wechseln sie in den folgenden Ordner:
 
     cd matex/textfeatures/parsing/
     
@@ -61,11 +61,11 @@ python Pakete für ihre Python 2 Distribution! Installieren sie auch bazel!
 **Achtung:** Überspringen sie das erneute klonen des Syntaxnet Archivs! (Den Befehl ` git clone `...) 
 Kehren sie danach in den Ordner ` /parsing/ ` zurück.
 
-> 4. Konfigurieren sie Syntaxnet zur Verwendung mit maTex indem sie die die Datei ` setup_parser.py ` ausführen:
+> 4: Konfigurieren sie Syntaxnet zur Verwendung mit maTex indem sie die die Datei ` setup_parser.py ` ausführen:
 
     python3 setup_parser.py
 
-> 5. Installieren sie die für maTex benötigten Pakete: (Installieren sie pip3, falls sie es nicht bereits installiert haben)
+> 5: Installieren sie die für maTex benötigten Pakete: (Installieren sie pip3, falls sie es nicht bereits installiert haben)
 
     sudo apt-get install python3-pip
     pip3 install numpy
@@ -74,7 +74,7 @@ Kehren sie danach in den Ordner ` /parsing/ ` zurück.
     pip3 install flask
     pip3 install textract
 
-> 6. Nun können sie die Datei `main.py` benutzen. Gehen sie dazu zurück in den Ordner `/matex/` .
+> 6: Nun können sie die Datei `main.py` benutzen. Gehen sie dazu zurück in den Ordner `/matex/` .
 
     cd ../..
 
@@ -87,12 +87,12 @@ Zur Nutzung des Programms muss die `main.py` aufgerufen werden.
 
 Es kommt eine Eingabezeile in der sie die Möglichkeit haben folgende Befehle einzugeben:
 
->1. `training` : Hiermit können sie Anhand ihrer eigenen Datensets den Klassifikator trainieren.
+>1: `training` : Hiermit können sie Anhand ihrer eigenen Datensets den Klassifikator trainieren.
 Folgen sie danach den Programm.
->2. `run` : Klassifizieren sie Texte mithilfe eines Profils ihrer Wahl.
->3. `profileinfo` : Damit können sie die Features und besten Features eines Profils ausgeben, 
+>2: `run` : Klassifizieren sie Texte mithilfe eines Profils ihrer Wahl.
+>3: `profileinfo` : Damit können sie die Features und besten Features eines Profils ausgeben, 
 sowie die Genauigkeit des Profils.
->4. `exit` : Zum Verlassen des Programmes.
+>4: `exit` : Zum Verlassen des Programmes.
 
 Alternativ können sie auch die Funktion `-gui` benutzen:
 

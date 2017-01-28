@@ -8,7 +8,7 @@ die mit verschiedenen Messgrößen eines Textes arbeitet.
 Sie können den Bayesschen Klassifikator mithilfe von maTex selbst trainieren, 
 wenn sie eigene Trainingsets besitzen.
 
-Möchten sie Texte nur Bewerten, so empfehlen wir ihnen unsere [Webseite](matex.pythonanywhere.com) zu benutzen.
+Möchten sie Texte nur Bewerten, so empfehlen wir ihnen unsere [Webseite](http://matex.pythonanywhere.com/) zu benutzen.
 
 Vorraussetzungen
 ----

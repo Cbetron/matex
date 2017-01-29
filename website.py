@@ -13,11 +13,12 @@ import time
 import webbrowser
 import os
 import main as MN
+from utils import pdfcreator
 
 PATH = os.getcwd()
 x = 1
 timestr = time.strftime("%Y%m%d-%H%M%S")
-app = flask.Flask(__name__, static_folder=PATH+"/UI/static", template_folder=PATH+"/UI/templates")
+app = flask.Flask(__name__, static_folder=PATH + "/UI/static", template_folder=PATH + "/UI/templates")
 mobile_devices = ["iphone", "android"]
 
 
@@ -129,14 +130,15 @@ def index_pl():
     return flask.render_template('index_pl.html')
 
 
-
 @app.route("/download", methods=['POST'])
-def files_download():
-    file_used = flask.request.form["data2"]
-    response = flask.make_response(file_used)
-    response.headers["Content-Disposition"] = "attachment; filename=file.txt"
-    response.mimetype = 'text/plain'
-    return response
+def files_download(filename, text, text_grade, method, profile, evidence, validity, timestring):
+    PATH_used = "/UI/static/files/"
+    # file_used = flask.request.form["data2"]
+    pdf = pdfcreator.PDF(name=filename, method=method, profile=profile, evidence=evidence, accuracy=validity, timestring=timestring)
+    pdf.insert_text(text=text)
+    pdf.insert_grade(grade=text_grade)
+    pdf.save_pdf()
+    return flask.send_file(PATH_used + filename + '.pdf', as_attachment=True)
 
 
 @app.route("/grade", methods=['POST'])
@@ -175,10 +177,9 @@ def echo():
         file.write("\n" + "Genauigkeit des Profils: " + validity)
         file.write("\n" + "Datum der Korrektur: " + usedtime)
         file.close()
-        file = open(file_name, "r", encoding="utf-8")
-        file_used = file.read()
         return flask.render_template('grade.html', text_grade=text_grade, method=flask.request.form['Methode'],
-                                     profile=flask.request.form['Profil'], evidence=evidence, validity=validity, file_used=file_used)
+                                     profile=flask.request.form['Profil'], evidence=evidence, validity=validity,
+                                     filename=file_name, text=text, timestring=timestr)
     except:
         return flask.render_template('error.html')
 
@@ -222,7 +223,8 @@ def echo_en():
         file = open(file_name, "r", encoding="utf-8")
         file_used = file.read()
         return flask.render_template('grade_en.html', text_grade=text_grade, method=flask.request.form['Methode'],
-                                     profile=flask.request.form['Profil'], evidence=evidence, validity=validity, file_used=file_used)
+                                     profile=flask.request.form['Profil'], evidence=evidence, validity=validity,
+                                     file_used=file_used)
     except:
         return flask.render_template('error_en.html')
 
@@ -266,7 +268,8 @@ def echo_pl():
         file = open(file_name, "r", encoding="utf-8")
         file_used = file.read()
         return flask.render_template('grade_pl.html', text_grade=text_grade, method=flask.request.form['Methode'],
-                                     profile=flask.request.form['Profil'], evidence=evidence, validity=validity, file_used=file_used)
+                                     profile=flask.request.form['Profil'], evidence=evidence, validity=validity,
+                                     file_used=file_used)
     except:
         return flask.render_template('error_pl.html')
 

@@ -13,7 +13,6 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import Paragraph, Table, TableStyle, PageBreak, SimpleDocTemplate
 from reportlab.lib.colors import yellow, black, red
 from reportlab.lib.pagesizes import A4
-import time
 
 
 class PDF(object):
@@ -23,15 +22,16 @@ class PDF(object):
     Pdf = None
     style = getSampleStyleSheet()
     story = []
+    PATH = "/UI/static/files/"
 
-    def __init__(self, name, profilename):
+    def __init__(self, name, subtitle, method, profile, evidence, accuracy, timestring):
         """
         Weisst die Klassenvariabeln zu
         :param name: Der Name, der die Pdf haben soll
         """
         self.pdf_name = name
         self.define_styles()
-        self.create_pdf(profilename)
+        self.create_pdf(subtitle=subtitle, method=method, profile=profile, evidence=evidence, accuracy=accuracy, timestring=timestring)
 
     def define_styles(self):
         """
@@ -47,16 +47,19 @@ class PDF(object):
         except KeyError:
             print("style already defined")
 
-    def create_pdf(self, profilename, title="Textkorrektur - Wordchecker", subtitle=""):
+    def create_pdf(self, title="Textkorrektur - Wordchecker", subtitle="", method="", profile="", evidence="", accuracy="", timestring=""):
         """
         Erstellt ein Pdf mit dem Namen, der der Klasse übergeben wurde
         """
-        self.Pdf = SimpleDocTemplate(self.pdf_name + ".pdf", pagesize=A4)
+        self.Pdf = SimpleDocTemplate(self.PATH + self.pdf_name + ".pdf", pagesize=A4)
         # Create Titlepage
         self.story.append(Paragraph(title, self.style['Title']))
         self.story.append(Paragraph(subtitle, self.style['Subtitle']))
-        self.story.append(Paragraph(str(time.ctime()), self.style['Date']))
-        self.story.append(Paragraph("Classificationprofile: ".format(profilename), self.style['Date']))
+        self.story.append(Paragraph(method, self.style['Date']))
+        self.story.append(Paragraph(profile, self.style['Date']))
+        self.story.append(Paragraph(evidence, self.style['Date']))
+        self.story.append(Paragraph(accuracy, self.style['Date']))
+        self.story.append(Paragraph(timestring, self.style['Date']))
         self.story.append(PageBreak())
 
     def insert_text(self, text, lines=True):

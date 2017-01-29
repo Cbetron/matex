@@ -126,12 +126,10 @@ p.ex3 {
 					<p class="ex1">Ihre Note: {{ text_grade }}</p>
 					<p class="ex1">Benutzte Methode: {{ method }}</p>
 					<p class="ex1">Benutztes Profil: {{ profile }}</p>
-					<p class="ex1">Evidence: {{ evidence }}</p>
+					<p class="ex1">Evidence: <b>{{ evidence }}</b></p>
 					<p class="ex1">Richtigkeit des Profils: {{ validity }}</p>
 					<form action="/download" method="POST">
-						<textarea name="filename" style="display:none; resize:none" readonly>{{ filename }}</textarea>
-						<textarea name="text" style="display:none; resize:none" readonly>{{ text }}</textarea>
-						<textarea name="timestring" style="display:none; resize:none" readonly>{{ timestring }}</textarea>
+						<textarea name="data2" style="display:none; resize:none" readonly>{{ file_used }}</textarea>
 						<br>
 
 						<button type="submit" class="btn btn-success">HERUNTERLADEN</button>

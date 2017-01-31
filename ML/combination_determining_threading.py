@@ -7,8 +7,8 @@ pythonfile.py:	Checking all combinatons of features in a profile and saves its v
 			    The Resultfile could have a size of 42 KB the Computing could take a lot of time c.a. 6-8h
 """
 
+__copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Raphael Kreft"
-__version__ = "Development v0.0"
 __email__ = "raphaelkreft@gmx.de"
 __status__ = "Dev"
 

@@ -3,9 +3,9 @@
 
 """main.py: This is the main program."""
 
+__copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Raphael Kreft"
 __email__ = "kreft@phaenovum.de"
-__version__ = "0.0.1 alpha"
 __status__ = "dev"
 
 from math import sqrt

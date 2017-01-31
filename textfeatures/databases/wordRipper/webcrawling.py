@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""webcrawling.py: webcrawling..."""
+
+__copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
+__author__ = "Raphael Kreft"
+__email__ = "raphaelkreft@gmx.de"
+__status__ = "dev"
+
 import urllib.request
 from bs4 import BeautifulSoup
 import time

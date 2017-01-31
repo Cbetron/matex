@@ -3,12 +3,8 @@
 
 """syllables.py:	Diese Datei ist Teil der Wortwahl"""
 
+__copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Julian Behringer"
-__copyright__ = ""
-__credits__ = ""
-
-__license__ = ""
-__version__ = "0.1"
 __email__ = "julian.b@hringer.de"
 __status__ = "dev"
 

@@ -3,6 +3,7 @@
 
 """parseAnalyze.py: This textfeauture analyses the text extracting information from the 'parsed' databse"""
 
+__copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Nikodem Kernbach"
 __email__ = "kernbach@phaenovum.de"
 __status__ = "dev"

@@ -3,8 +3,8 @@
 
 """wordRipper.py: Dieses Script/Modul dient zum Downloaden der Wörter für die Lookuplist"""
 
+__copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Raphael Kreft"
-__version__ = "0.2.0"
 __email__ = "raphaelkreft@gmx.de"
 __status__ = "dev"
 

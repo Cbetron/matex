@@ -3,6 +3,7 @@
 
 """manager.py: This is the file which manages all textfeautures"""
 
+__copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Raphael Kreft"
 __email__ = "raphaelkreft@gmx.de"
 __status__ = "dev"

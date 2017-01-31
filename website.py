@@ -3,6 +3,7 @@
 
 """website.py:	Diese Datei ist dient des Webinterfaces des Programms maTex"""
 
+__copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Julian Behringer"
 __email__ = "julian.b@hringer.de"
 __status__ = "dev"

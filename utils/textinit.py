@@ -3,6 +3,7 @@
 
 """textinit.py: This module initializes and organizes the text."""
 
+__copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Nikodem Kernbach, Raphael Kreft"
 __email__ = "kernbach@phaenovum.de"
 __status__ = "dev"

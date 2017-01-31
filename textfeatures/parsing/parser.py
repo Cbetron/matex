@@ -3,6 +3,7 @@
 
 """parser.py: This util contains functions that classify words with tensorflow syntaxnet and parsey mcParseface."""
 
+__copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Nikodem Kernbach"
 __email__ = "kernbach@phaenovum.de"
 __status__ = "dev"

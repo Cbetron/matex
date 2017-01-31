@@ -3,11 +3,10 @@
 
 """pythonfile.py:	Description of pythonfile.py"""
 
+__copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Raphael Kreft"
-__copyright__ = "Copyright (c) 2016 Raphael Kreft"
-__version__ = "Development v0.0"
 __email__ = "raphaelkreft@gmx.de"
-__status__ = "Dev"
+__status__ = "dev"
 
 
 class Textfeature(object):

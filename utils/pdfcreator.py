@@ -3,8 +3,8 @@
 
 """pdfcreator.py:	Ein Modul, zugeschnitten auf die Erstellung des Ausgabe-End-Pdfs"""
 
+__copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Raphael Kreft"
-__version__ = "0.2"
 __email__ = "raphaelkreft@gmx.de"
 __status__ = "dev"
 

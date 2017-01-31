@@ -3,6 +3,7 @@
 
 """setup_parser.py: This util sets up Google Syntaxnet to work with our program"""
 
+__copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Nikodem Kernbach"
 __email__ = "kernbach@phaenovum.de"
 __status__ = "final"

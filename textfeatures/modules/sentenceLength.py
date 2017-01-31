@@ -3,6 +3,7 @@
 
 """satzlaenge.py:	Diese Datei ist Teil der Textanalyse"""
 
+__copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Raphael Kreft, Nikodem Kernbach"
 __email__ = "raphaelkreft@gmx.de"
 __status__ = "dev"

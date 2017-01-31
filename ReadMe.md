@@ -18,7 +18,7 @@ Vorraussetzungen
 * bei älteren Versionen als 14.04 (Trusty) funktioniert die automatische installation nur, 
 wenn sie Python3 zuvor manuell installiert haben. `sudo apt-get install python3`
 * Oracle JDK 8 ist von Vorteil, kann aber auch automatisch installiert werden. 
-(ab Ubuntu 15.10 Willy standardmäßig in Ubuntu integriert)
+(ab Ubuntu 15.10 Wily standardmäßig in Ubuntu integriert)
 * Für die Installation empfehlen wir 8GB RAM oder mehr
 
 Installation (Internetverbindung notwendig)
@@ -33,7 +33,7 @@ Installation (Internetverbindung notwendig)
 
     git clone --recursive https://bitbucket.org/Nikch/matex.git
 
-#### II) Automatische Installation mithilfe der setup.py (zurzeit etwas Experimentell)
+#### II) Automatische Installation mithilfe der setup.py (getestet mit Ubuntu 16.04)
 
 
 > 3: `setup.py` mit python3 ausführen
@@ -47,7 +47,7 @@ falls sie gefragt werden. Zusätzliche Features von SyntaxNet empfehlen wir abzu
 >**Achtung:** Falls sie eine ältere Version als Ubuntu 15.10 (Willy) benutzen 
 und Java JDK 8 noch nicht installiert haben, fügen sie folgende Option hinzu:
     
-    python3 setup.py -installjdk8
+    sudo python3 setup.py -installjdk8
 
 #### III) Manuelle Installation (für Fortgeschrittene)
 

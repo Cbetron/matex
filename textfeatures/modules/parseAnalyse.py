@@ -1,12 +1,12 @@
 # !/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""parseAnalyze.py: This textfeauture analyses the text extracting information from the 'parsed' databse"""
+"""parseAnalyze.py: This textfeauture analyses the syntax of the sentences of a text using the 'parsed' databse"""
 
 __copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Nikodem Kernbach"
 __email__ = "kernbach@phaenovum.de"
-__status__ = "dev"
+__status__ = "rdy"
 
 import textfeatures.modules.textfeature as TF
 import textfeatures.databases.manage as DB
@@ -27,21 +27,21 @@ class ParseAnalyse(TF.Textfeature):
 
     word_tag_list = [
         ['comma_count', ','],
-        #['cardinal_numbers', 'CD'],
-        #['hyphen_count', 'HYPH'],
-        #['superlative_adjectives', 'JJS'],
-        #['comparative_adjectives', 'JJR'],
+        # ['cardinal_numbers', 'CD'],
+        # ['hyphen_count', 'HYPH'],
+        # ['superlative_adjectives', 'JJS'],
+        # ['comparative_adjectives', 'JJR'],
         ['adjectives', ['JJ', 'JJS', 'JJR']],
-        #['list_item_markers', 'LS'],
+        # ['list_item_markers', 'LS'],
         ['modal_verbs', 'MD'],
-        #['predeterminers', 'PDT'],
-        #['superlative_adverbs', 'RBS'],
-        #['comparative_adverbs', 'RBR'],
+        # ['predeterminers', 'PDT'],
+        # ['superlative_adverbs', 'RBS'],
+        # ['comparative_adverbs', 'RBR'],
         ['adverbs', ['RB', 'RBS', 'RBR']],
-        #['symbols', 'SYM'],
-        #['interjections', 'UH'],
+        # ['symbols', 'SYM'],
+        # ['interjections', 'UH'],
         ['gerunds_and_ing-form', 'VBG'],
-        #['proper_nouns', ['NNP', 'NNPS']],
+        # ['proper_nouns', ['NNP', 'NNPS']],
         ['possessive_pronouns', ['PRP$', 'WP$']]
     ]
 
@@ -50,23 +50,30 @@ class ParseAnalyse(TF.Textfeature):
         ['conjuncts', 'conj'],
         ['coordinations', 'cc'],
         ['markers_count', 'mark'],
-        #['passive_auxiliaries', 'auxpass'],
-        #['passive_nominal_subjects(passive_sentences)', 'nsubjpass'],
-        #['compound_numbers', 'number'],
-        #['parataxes', 'parataxis'],
-        #['multi_word_expressions', 'mwe'],
-        #['expletives', 'expl'],
-        #['discourse_elements', 'discourse'],
-        #['preconjuncts', 'preconj'],
+        # ['passive_auxiliaries', 'auxpass'],
+        # ['passive_nominal_subjects(passive_sentences)', 'nsubjpass'],
+        # ['compound_numbers', 'number'],
+        # ['parataxes', 'parataxis'],
+        # ['multi_word_expressions', 'mwe'],
+        # ['expletives', 'expl'],
+        # ['discourse_elements', 'discourse'],
+        # ['preconjuncts', 'preconj'],
         ['negation_modifiers', 'neg'],
         ['modifiers', modifier_relations_list]
     ]
 
     def __init__(self):
+        """Initializing Database at creation of Object
+        """
         super().__init__()
         self.Database = DB.ParsingData()
 
     def analyse(self, text):
+        """The analyse function. Analyses the syntax of every sentence in a text. uses the 'parsed' database.
+        :param text: The text to be analysed. Note that the SyntaxNet results should be already inserted into the 'parsed' database.
+        :return dict: The dictionary with the counts of different word tags, relations and word dependencies.
+        For the specific used counts refer to class variables above
+        """
         textlen = TI.word_count(text)
         ret_dict = {}
         for wordtype in self.word_type_list:
@@ -78,6 +85,13 @@ class ParseAnalyse(TF.Textfeature):
         return ret_dict
 
     def count_words_prepare_dictionary(self, name, tag_column, tags, textlen):
+        """Function that prepares the Dictionaries for the analyse function.
+        :param name: The name of the tag, relation or type.
+        :param tag_column: The column from the 'parsed' (The type of the name)
+        :param tags: One or more names of the syntaxfeatures to check
+        :param textlen: The textlength(The number of words)
+        :return ret_dict: The prepared dictionary
+        """
         ret_dict = {}
         words = self.Database.get_words_from_database(tag_column, tags)
         count = len(words)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""pythonfile.py:	Description of pythonfile.py"""
+"""textfeature.py: The superclass of all Textfeatures"""
 
 __copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Raphael Kreft"
@@ -10,23 +10,12 @@ __status__ = "dev"
 
 
 class Textfeature(object):
+    """ The superclass of every textfeature class with the analyse function.
+    It is used to get instances of all Subclasses
     """
-    Die Klasse, vonder jedes Textfeature erbt.
-    Sie enthält die Grundsätzliche Struktur eines textfeature
-    """
-    __weight = None
-
-    def get_weight(self):
-        """
-        """
-        return self.__weight
-
-    def set_weight(self, weight):
-        """
-        """
-        self.__weight = weight
 
     def analyse(self, text):
-        """
+        """ This function is the analyse function of every textfeature, which analyses the text under one specific aspect
+        :param text: The text to be analysed
         """
         return

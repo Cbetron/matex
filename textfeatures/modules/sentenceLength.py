@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""satzlaenge.py:	Diese Datei ist Teil der Textanalyse"""
+"""sentenceLength.py: This file analyses the sentences of a text."""
 
 __copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Raphael Kreft, Nikodem Kernbach"
 __email__ = "raphaelkreft@gmx.de"
-__status__ = "dev"
+__status__ = "rdy"
 
 import statistics
 import sys
@@ -15,15 +15,12 @@ import utils.textinit as TI
 
 
 class Satzlaenge(Textfeature):
-    """
-    Dieses Textfeature erbt seine Struktur und einige Funktionen von .textfeature.Textfeature
-    Analysieren der durchschnittl. Satzlänge und zusammenhängenden Größen
+    """ This class inherits from the Textfeature superclass. It is used for the sentencelength feature.
     """
     def analyse(self, text):
-        """
-        Extrahieren verschieder Informationen über die Satzlänge eines übergebenen Textes
-        :param text: Der Text, der analysiert werden soll
-        :return: Der berechnete Durchschnitt, Anzahl der Sätze, längster, kürzester und median
+        """ This function returns different values connected to sentence length and structure.
+        :param text: The given text.
+        :return dict: The dictionary entry with the average number of sentences, the maximal and minimal sentence length, the sentence length median and sentences per textlenth.
         """
         len_list = []
         for sentence in TI.get_sentence_generator(text):
@@ -35,22 +32,3 @@ class Satzlaenge(Textfeature):
         minimum = min(len_list)
         median = statistics.median(len_list)
         return {'sentence_lenght': durchschnitt, 'max_sentence_len': maximum, 'min_sentence_len': minimum, 'median_sentence_len': median, 'sentences_per_textlen': anz/TI.word_count(text)}
-
-
-if __name__ == "__main__":
-    """
-    Aufgerufen wenn script vom Benutzer ausgeführt wird
-    """
-    try:
-        with open(sys.argv[1], "r") as f:
-            text = f.read()
-            sl = Satzlaenge()
-            sl.analyse(text)
-            print(sl.get_value())
-
-    except IndexError:
-        print("No Argument given\n\n")
-        sys.exit(1)
-    except FileNotFoundError:
-        print("Argument should be the Name of a File")
-        sys.exit(1)

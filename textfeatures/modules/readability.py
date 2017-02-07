@@ -1,70 +1,38 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""readability.py: This textfeature chechs the readability of the text using the textstat module"""
+"""readability.py: This textfeature checks the readability of the text using the textstat module"""
 
 __copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Nikodem Kernbach"
 __email__ = "kernbach@phaenovum.de"
-__status__ = "dev"
+__status__ = "rdy"
 
 from textfeatures.modules.textfeature import Textfeature
 import textstat.textstat as TS
 
 
 class SemiColon(Textfeature):
-    """SemiColon is a textfeauture class which analyzed the text for good spelling
+    """SemiColon is a textfeauture class which analyses the text for good spelling
     """
     def __init__(self):
         super().__init__()
-        self.text_statistics = TS.textstatistics()
+        self.ts = TS.textstatistics()
 
     def analyse(self, text):
         """" This is the main function of the semi_colon module which includes all other functions
         :param text: The text that should be checked
-        :return The dictionaries of the respective functions
-        See following functions for further information
+        :return The dictionary with the readability score entries
+        See the following dictionary for the names of readability functions
         """
-        ret_dict = {'flesch_index': self.flesch_reading_ease_index(text),
-                    'flesch_grade': self.flesch_kincaid_grade(text),
-                    'fog_scale': self.fog_scale(text),
-                    'smog_index': self.smog_index(text),
-                    'coleman_index': self.coleman_liau_index(text),
-                    'automated_readability': self.automated_readability_index(text),
-                    'linsear_formula': self.linsear_write_formula(text),
-                    'dale_score': self.dale_chall_readability_score(text)
+        ret_dict = {'flesch_index': self.ts.flesch_reading_ease(text),
+                    'flesch_grade': self.ts.flesch_kincaid_grade(text),
+                    'fog_scale': self.ts.gunning_fog(text),
+                    'smog_index': self.ts.smog_index(text),
+                    'coleman_index': self.ts.coleman_liau_index(text),
+                    'automated_readability': self.ts.automated_readability_index(text),
+                    'linsear_formula': self.ts.linsear_write_formula(text),
+                    'dale_score': self.ts.dale_chall_readability_score(text)
                     }
         #print("Successful!")
         return ret_dict
-
-    def flesch_reading_ease_index(self, text):
-        flesch_index = self.text_statistics.flesch_reading_ease(text)
-        return flesch_index
-
-    def flesch_kincaid_grade(self, text):
-        flesch_grade = self.text_statistics.flesch_kincaid_grade(text)
-        return flesch_grade
-
-    def fog_scale(self, text):
-        fog_scale = self.text_statistics.gunning_fog(text)
-        return fog_scale
-
-    def smog_index(self, text):
-        smog_index = self.text_statistics.smog_index(text)
-        return smog_index
-
-    def coleman_liau_index(self, text):
-        coleman_index = self.text_statistics.coleman_liau_index(text)
-        return coleman_index
-
-    def automated_readability_index(self, text):
-        automated_readability = self.text_statistics.automated_readability_index(text)
-        return automated_readability
-
-    def linsear_write_formula(self, text):
-        linsear_formula = self.text_statistics.linsear_write_formula(text)
-        return linsear_formula
-
-    def dale_chall_readability_score(self, text):
-        dale_score = self.text_statistics.dale_chall_readability_score(text)
-        return dale_score

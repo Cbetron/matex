@@ -35,8 +35,7 @@ def training(pname, trainingset_path, excludefeatures=None):
             print("validate and add Factors...")
             newprofile, ergs = validation.profile_validation(myprofile, valset, toexclude=excludefeatures, multitest=10, rating=rating)
             print("Safe Profile...")
-            myprofile.set_profile(newprofile)
-            myprofile.dump_profile()
+            newprofile.dump_profile()
             break
          except ZeroDivisionError:
              continue

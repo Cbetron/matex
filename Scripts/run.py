@@ -33,20 +33,20 @@ def run_magic(filepath, profile, method=None, usefeatures=None):
     if method is None:
         method = [True, False, False]
     bestfeatures, factors, multivariant = method[0], method[1], method[2]
-    pdf = utils.pdfcreator.PDF(input("Outputfile: "),  "Offline Grading" , str(method), profile.profilename, "evidence", "accuracy", str(time.time()))
-    MyManager = Manager(pdf=pdf)
+    #pdf = utils.pdfcreator.PDF(input("Outputfile: "),  "Offline Grading" , str(method), profile.profilename, "evidence", "accuracy", str(time.time()))
+    MyManager = Manager()
     # Build Classifier
     MyClassifier = Classifier(prof)
     MyManager.set_text(utils.textinit.get_raw_text(filepath))
     if bestfeatures:
-        usefeatures = prof.get_profile()["best-features"]
+        usefeatures = prof["best-features"]
     Grade, evidence = MyClassifier.classify(MyManager.run(), factors=factors, multivariant=multivariant, usedvalues=usefeatures)
-    pdf.insert_grade(Grade)
-    pdf.save_pdf()
+    # pdf.insert_grade(Grade)
+    # pdf.save_pdf()
     print("Finished!\nGrade: {}\nEvidence: {}".format(Grade, evidence))
 
 
 prof = input("Which Profile?: ")
-filepath = input("path to File: ")
+filepath = os.getcwd() + input("path to File: ")
 usefeatures = input("which features(Enter Nothing to use all): ")
 run_magic(filepath, prof, usefeatures=usefeatures)

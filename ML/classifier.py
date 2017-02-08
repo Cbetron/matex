@@ -89,7 +89,7 @@ class Classifier(object):
             posterior_ergs.append((cls, self.posterior(cls, valuevec, usedvalues, factors, multivariant)))
         most_common_class = max(posterior_ergs, key=itemgetter(1))
         cls = most_common_class[0]
-        evidence = (1 - most_common_class[1])*100
+        evidence = (1 - round(most_common_class[1]))*100
         return cls, evidence
 
     def set_profile(self, new_profile):

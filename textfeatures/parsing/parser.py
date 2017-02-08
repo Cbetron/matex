@@ -10,7 +10,7 @@ __status__ = "dev"
 
 import sys
 import os
-import utils.textinit as TI
+import utils.textinit
 import textfeatures.databases.manage as DB
 import re
 
@@ -49,7 +49,7 @@ def setup_parser():
 
 
 def parse(text):
-    input_text = TI.get_sentence_generator(text)
+    input_text = utils.textinit.get_sentence_generator(text)
     input_text_file = open(INPUT_TEXT_PATH, 'w')
     for sentence in input_text:
         input_text_file.write(sentence)

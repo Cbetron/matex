@@ -60,7 +60,7 @@ def trainingset_validation(path, toexclude=None, usefeatures=None):
         for feature in featurelist:
             erg = statistics.mean(feature_accuracies[feature])
             f.write("{}:\t{}\n".format(feature, erg))
-        f.write("\n\nBest Features: {}".format(new_profile["best-features"]))
+        f.write("\n\nBest Features: {}".format(new_profile.get_profile()["best-features"]))
         f.write("\nFeatures excluded by yourself: {}\n".format(toexclude))
         f.write("\nFeatures that were removed by the filter a cause of invalid values:\t{}\n".format(removedfeatures))
         f.write("\n\nProfiles with your trainingsets got an average Accuracy and Variance of:\n")

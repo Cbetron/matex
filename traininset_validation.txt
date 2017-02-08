@@ -1,0 +1,17 @@
+Feature Accuracy for all Features in your Trainingsets after removing Features, that makes no sense:
+
+words:	0.6880406133416942
+difficult_words:	0.6762402287694282
+typetokenrelation:	0.42984710640556145
+
+Best Features: nix
+Features excluded by yourself: ['smog_index', 'modal_verbs', 'gerunds_and_ing-form', 'spellcheck_pyenchant', 'markers_count', 'verbs', 'paragraphs', 'conjuncts', 'negation_modifiers', 'average_wordlenght', 'min_sentence_len', 'auxiliaries', 'modifiers', 'flesch_grade', 'possessive_pronouns', 'conjunctions', 'dale_score', 'syllables', 'sentences_per_textlen', 'coleman_index', 'median_sentence_len', 'max_sentence_len', 'paragraph_lenght', 'sentence_lenght', 'adverbs', 'longest_word', 'automated_readability', 'linsear_formula', 'comma_count', 'fog_scale', 'foreignWord', 'adjectives', 'rareWords', 'coordinations', 'nouns', 'spelling_mistakes', 'flesch_index']
+
+Features that were removed by the filter a cause of invalid values:	['abbreviations', 'paragraph_lenght_per_textlenght']
+
+
+Profiles with your trainingsets got an average Accuracy and Variance of:
+Naive Bayes Normal: 62.62222222222223, 0.384
+Naive Bayes Faktoren: 50.42777777777778, 0.5446666666666666
+Naive Bayes Best Features: 62.62222222222223, 0.384
+Naive Bayes Best Features with factors: 50.42777777777778, 0.5446666666666666

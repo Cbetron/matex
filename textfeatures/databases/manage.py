@@ -66,8 +66,8 @@ class LookUpList(DataBase):
             self.insert_word(word)
         else:
             print("counting "+word)
-            list = [i[0] for i in data]
-            count = list[0]
+            mylist = [i[0] for i in data]
+            count = mylist[0]
             count += 1
             self.cursor.execute("UPDATE words SET count = (?) WHERE word = (?)", [count, word])
             self.commit()

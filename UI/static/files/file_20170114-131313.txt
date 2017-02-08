@@ -1,9 +1,0 @@
-===POCZĄTEK TEKSTU===
-For small projects I find it easiest to work with tuples. When that gets too hard to manage (and not before) I start grouping things into logical structures, however I think your suggested use of dictionaries and ReturnValue objects is wrong (or too simplistic).
-===KONIEC TEKSTU===
-Twoja Ocena: 6
-Użyta Metoda: Naiwny Bayes z faktorami
-Użyty Profil: Ameryka: 8. Klasa
-Evidence: xx
-Dokładność Profilu: 0%
-Data Korekcji: Sat Jan 14 13:13:43 2017

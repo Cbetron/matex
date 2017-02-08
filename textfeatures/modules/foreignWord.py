@@ -9,21 +9,23 @@ __email__ = "julian.b@hringer.de"
 __status__ = "rdy"
 
 import textfeatures.databases.manage as DB
-import utils.textinit as TI
+import utils.textinit
 from .textfeature import Textfeature
 import textfeatures.parsing.parser as PRS
 
 
 class ForeignWord(Textfeature):
-    """ This class inherits from the Textfeature superclass. It is used for the foreign words feature
+    """
+    This class inherits from the Textfeature superclass. It is used for the foreign words feature
     """
     def analyse(self, text):
-        """ This function returns the number of foreign words in a text using the LookUpList database.
+        """
+        This function returns the number of foreign words in a text using the LookUpList database.
         :param text: The given text.
         :return dict: The dictionary entry with the number of foreign words.
         """
         Database = DB.LookUpList()
-        cleantext = TI.cleantext(text)
+        cleantext = utils.textinit.cleantext(text)
         words = cleantext.split(' ')
         foreignWord = 0
         for word in words:

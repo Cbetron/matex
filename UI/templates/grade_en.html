@@ -126,16 +126,24 @@ p.ex3 {
 					<p class="ex1">Your Grade: {{ text_grade }}</p>
 					<p class="ex1">Used Method: {{ method }}</p>
 					<p class="ex1">Used Profile: {{ profile }}</p>
-					<p class="ex1">Validity of the Profile: <b>{{ evidence }}</b></p>
-					<p class="ex1">Richtigkeit des Profils: {{ validity }}</p>
+					<p class="ex1">Evidence: {{ evidence }}</p>
+					<p class="ex1">Validity of the Profile: {{ validity }}</p>
 					<form action="/download" method="POST">
-						<textarea name="data2" style="display:none; resize:none" readonly>{{ file_used }}</textarea>
+						<textarea name="text_grade" style="display:none; resize:none" readonly>{{ text_grade }}</textarea>
+						<textarea name="method" style="display:none; resize:none" readonly>{{ method }}</textarea>
+						<textarea name="profile" style="display:none; resize:none" readonly>{{ profile }}</textarea>
+						<textarea name="evidence" style="display:none; resize:none" readonly>{{ evidence }}</textarea>
+						<textarea name="validity" style="display:none; resize:none" readonly>{{ validity }}</textarea>
+						<textarea name="filename" style="display:none; resize:none" readonly>{{ filename }}</textarea>
+						<textarea name="text" style="display:none; resize:none" readonly>{{ text }}</textarea>
+						<textarea name="timestring" style="display:none; resize:none" readonly>{{ timestring }}</textarea>
 						<br>
 
 						<button type="submit" class="btn btn-success">DOWNLOAD</button>
 						<br>
 						<br>
 					</form>
+				</center>
 				</td>
 				</tr>
 				</div><!-- /col-lg-8 -->

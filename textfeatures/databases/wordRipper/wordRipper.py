@@ -55,8 +55,8 @@ class Database(object):
         # if word already exists
         else:
             print("counting "+word)
-            list = [i[0] for i in data]
-            count = list[0]
+            mylist = [i[0] for i in data]
+            count = mylist[0]
             count += 1
             self.cursor.execute("UPDATE words SET count = (?) WHERE word = (?)", [count, word])
             if besafe:
@@ -192,7 +192,7 @@ if __name__ == "__main__":
             MyDatabase.commit()
         tend = time.clock()
         print("\n\n**************\n\tDone!\n**************\ncomputingtime: {}".format(tend-tstart))
-          
+
     except ValueError as e:
         print("ValueError occured...\nErrormessage:\n\t{}".format(e))
     except KeyboardInterrupt:

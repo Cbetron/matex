@@ -9,9 +9,9 @@ __email__ = "raphaelkreft@gmx.de"
 __status__ = "rdy"
 
 import statistics
-import sys
+
+import utils.textinit
 from  .textfeature import Textfeature
-import utils.textinit as TI
 
 
 class Satzlaenge(Textfeature):
@@ -23,7 +23,7 @@ class Satzlaenge(Textfeature):
         :return dict: The dictionary entry with the average number of sentences, the maximal and minimal sentence length, the sentence length median and sentences per textlenth.
         """
         len_list = []
-        for sentence in TI.get_sentence_generator(text):
+        for sentence in utils.textinit.get_sentence_generator(text):
             len_list.append(len(sentence))
         # Rückgabewerte berechnen
         durchschnitt = statistics.mean(len_list)
@@ -31,4 +31,4 @@ class Satzlaenge(Textfeature):
         maximum = max(len_list)
         minimum = min(len_list)
         median = statistics.median(len_list)
-        return {'sentence_lenght': durchschnitt, 'max_sentence_len': maximum, 'min_sentence_len': minimum, 'median_sentence_len': median, 'sentences_per_textlen': anz/TI.word_count(text)}
+        return {'sentence_lenght': durchschnitt, 'max_sentence_len': maximum, 'min_sentence_len': minimum, 'median_sentence_len': median, 'sentences_per_textlen': anz / utils.textinit.word_count(text)}

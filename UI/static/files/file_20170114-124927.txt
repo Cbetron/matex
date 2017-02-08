@@ -1,9 +1,0 @@
-===ANFANG TEXT===
-You WORK now!!
-===ENDE TEXT===
-Ihre Note: 5
-Benutzte Methode: Naive Bayes ohne Faktoren
-Benutztes Profil: Amerika: 8. Klasse
-Evidence: 30
-Genauigkeit des Profils: 60
-Datum der Korrektur: Sat Jan 14 12:49:42 2017

@@ -8,19 +8,21 @@ __author__ = "Julian Behringer"
 __email__ = "julian.b@hringer.de"
 __status__ = "dev"
 
-import utils.textinit as TI
+import utils.textinit
 from .textfeature import Textfeature
 
 
 class TypeToken(Textfeature):
-    """ This class inherits from the Textfeature superclass. It is used for the type-token feature
+    """
+    This class inherits from the Textfeature superclass. It is used for the type-token feature
     """
     def analyse(self, text):
-        """ This function returns the type-token-relation.
+        """
+        This function returns the type-token-relation.
         :param text: The given text.
         :return dict: The dictionary entry with the type-token-relation.
         """
-        cleantext = TI.cleantext(text).lower()
+        cleantext = utils.textinit.cleantext(text).lower()
         words = cleantext.split(' ')
         token = len(words)
         woerter_type = set(words)

@@ -4,8 +4,8 @@
 """startscreen.py: This util prints the start screen of our console program"""
 
 __copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
-__author__ = "Nikodem Kernbach"
-__email__ = "kernbach@phaenovum.de"
+__author__ = "Nikodem Kernbach, Raphael Kreft"
+__email__ = "kernbach@phaenovum.de, kreft@phaenovum.de"
 __status__ = "final"
 
 

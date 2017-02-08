@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 __copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
+__author__ = "Raphael Kreft"
 
 import math
 import numpy

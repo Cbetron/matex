@@ -1,9 +1,0 @@
-===ANFANG TEXT===
-Windows isn't supported by the parser module yet! QUITTING...
-===ENDE TEXT===
-Ihre Note: 6
-Benutzte Methode: Naive Bayes mit Faktoren
-Benutztes Profil: Amerika: 8. Klasse (Note: 1-6)
-Evidence: xx
-Genauigkeit des Profils: 0%
-Datum der Korrektur: Sat Jan 14 13:34:37 2017

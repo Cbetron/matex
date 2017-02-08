@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 """text.py: This module contains functions for editing .txt files."""
-"""Please DO NOT DELETE this File until we use better Loggers."""
 
 __copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
 __author__ = "Raphael Kreft"

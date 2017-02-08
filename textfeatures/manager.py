@@ -8,10 +8,7 @@ __author__ = "Raphael Kreft"
 __email__ = "raphaelkreft@gmx.de"
 __status__ = "dev"
 
-import threading
-import time
-
-import textfeatures.parsing.parser as parser
+from textfeatures.parsing.parser import parse
 from utils.pdfcreator import PDF
 from textfeatures.modules.textfeature import Textfeature
 from textfeatures.modules import wordLength
@@ -28,7 +25,9 @@ from textfeatures.modules import typetoken
 
 
 class Manager(object):
-    def __init__(self, ignorefeature=[], pdf=""):
+    def __init__(self, ignorefeature=None, pdf=""):
+        if ignorefeature is None:
+            ignorefeature = []
         self.ignorefeature = ignorefeature
         self.vars = globals()
         self.text = None
@@ -57,7 +56,7 @@ class Manager(object):
 
     def set_text(self, text):
         self.text = text
-        parser.parse(text)
+        parse(text)
         if self.pdf:
             self.pdf.insert_text(self.text)
 

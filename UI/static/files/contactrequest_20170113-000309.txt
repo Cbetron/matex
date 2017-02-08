@@ -1,5 +1,0 @@
-Name: test
-E-Mail: test@test.de
-Thema: teeeeeest
-Datum: Fri Jan 13 00:03:56 2017
-Text: 123test

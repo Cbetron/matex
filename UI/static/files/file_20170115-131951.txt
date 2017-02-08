@@ -1,9 +1,0 @@
-===ANFANG TEXT===
-Das ist ein tolle rtext der jetzt schlecht sein wird
-===ENDE TEXT===
-Ihre Note: 6
-Benutzte Methode: Naive Bayes mit Faktoren
-Benutztes Profil: Amerika: 8. Klasse (Note: 1-6)
-Evidence: xx
-Genauigkeit des Profils: 0%
-Datum der Korrektur: Sun Jan 15 13:20:08 2017

@@ -9,22 +9,24 @@ __email__ = "julian.b@hringer.de"
 __status__ = "rdy"
 
 import textfeatures.databases.manage as DB
-import utils.textinit as TI
+import utils.textinit
 from .textfeature import Textfeature
 
 
 class RareWords(Textfeature):
-    """ This class inherits from the Textfeature superclass. It is used for the rare words feature
+    """
+    This class inherits from the Textfeature superclass. It is used for the rare words feature
     """
     def analyse(self, text):
-        """ This function returns the number of rare words in a text using the LookUpList database.
+        """
+        This function returns the number of rare words in a text using the LookUpList database.
         :param text: The given text.
         :return dict: The dictionary entry with the number of rare words.
         """
         Database = DB.LookUpList()
         avg = Database.counter_average()
         limit = avg*0.5
-        cleantext = TI.cleantext(text)
+        cleantext = utils.textinit.cleantext(text)
         words = cleantext.split(' ')
         rareWords = 0
         for word in words:
@@ -36,5 +38,5 @@ class RareWords(Textfeature):
                     rareWords += 1
             else:
                 rareWords += 1
-        rareWords = rareWords/TI.word_count(text)
+        rareWords = rareWords / utils.textinit.word_count(text)
         return {"rareWords": rareWords}

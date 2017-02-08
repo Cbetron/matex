@@ -9,9 +9,9 @@ __email__ = "raphaelkreft@gmx.de"
 __status__ = "rdy"
 
 import statistics
-import sys
+
+import utils.textinit
 from .textfeature import Textfeature
-import utils.textinit as TI
 
 
 class Paragraphs(Textfeature):
@@ -25,10 +25,10 @@ class Paragraphs(Textfeature):
         abs_list = text.split("\n\n")
         result_list = []
         for absatz in abs_list:
-            result_list.append(TI.word_count(absatz))
+            result_list.append(utils.textinit.word_count(absatz))
 
         anz_absaetze = len(result_list)
         abs_mean = statistics.mean(result_list)
-        abs_per_word = anz_absaetze / TI.word_count(text)
-        par_mean_per_lenght = abs_mean/TI.word_count(text)
+        abs_per_word = anz_absaetze / utils.textinit.word_count(text)
+        par_mean_per_lenght = abs_mean / utils.textinit.word_count(text)
         return {"paragraphs": abs_per_word, "paragraph_lenght": abs_mean, 'paragraph_lenght_per_textlenght': par_mean_per_lenght}

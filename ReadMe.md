@@ -44,7 +44,7 @@ Installation (Internetverbindung notwendig)
 > Die `setup.py` führt sie durch die Installation. Bestätigen sie das Installieren von Paketen, 
 falls sie gefragt werden. Zusätzliche Features von SyntaxNet empfehlen wir abzulehnen.
 
->**Achtung:** Falls sie eine ältere Version als Ubuntu 15.10 (Willy) benutzen 
+>**Achtung:** Falls sie eine ältere Version als Ubuntu 15.10 (Wily) benutzen
 und Java JDK 8 noch nicht installiert haben, fügen sie folgende Option hinzu:
     
     sudo python3 setup.py -installjdk8
@@ -89,10 +89,12 @@ Es kommt eine Eingabezeile in der sie die Möglichkeit haben folgende Befehle ei
 
 >1: `training` : Hiermit können sie Anhand ihrer eigenen Datensets den Klassifikator trainieren.
 Folgen sie danach den Programm.
->2: `run` : Klassifizieren sie Texte mithilfe eines Profils ihrer Wahl.
->3: `profileinfo` : Damit können sie die Features und besten Features eines Profils ausgeben, 
+>2: `validaton` : Hiermit können sie ein Datenset auf seine durchschnittliche Genauigkeit testen.
+>3: `run` : Klassifizieren sie Texte mithilfe eines Profils ihrer Wahl.
+>4: `profileinfo` : Damit können sie die Features und besten Features eines Profils ausgeben,
 sowie die Genauigkeit des Profils.
->4: `exit` : Zum Verlassen des Programmes.
+>5: `script` : Damit können sie ein von ihnen erstelltes Script aus dem Ordner `Scripts` ausführen.
+>6: `exit` : Zum Verlassen des Programmes.
 
 Alternativ können sie auch die Funktion `-gui` benutzen:
 

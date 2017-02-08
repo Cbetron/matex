@@ -10,11 +10,12 @@ __status__ = "rdy"
 
 import textfeatures.modules.textfeature as TF
 import textfeatures.databases.manage as DB
-import utils.textinit as TI
+import utils.textinit
 
 
 class ParseAnalyse(TF.Textfeature):
-    """This class is the Textfeauture class of the parseAnalyse module
+    """
+    This class is the Textfeauture class of the parseAnalyse module
     """
     modifier_relations_list = ['nn', 'amod', 'advmod', 'num', 'poss', 'rcmod', 'advcl', 'possesive', 'appos',
                                'partmod', 'neg', 'quantmod', 'tmod', 'infmod', 'npadvmod']
@@ -63,18 +64,20 @@ class ParseAnalyse(TF.Textfeature):
     ]
 
     def __init__(self):
-        """Initializing Database at creation of Object
+        """
+        Initializing Database at creation of Object
         """
         super().__init__()
         self.Database = DB.ParsingData()
 
     def analyse(self, text):
-        """The analyse function. Analyses the syntax of every sentence in a text. uses the 'parsed' database.
+        """
+        The analyse function. Analyses the syntax of every sentence in a text. uses the 'parsed' database.
         :param text: The text to be analysed. Note that the SyntaxNet results should be already inserted into the 'parsed' database.
         :return dict: The dictionary with the counts of different word tags, relations and word dependencies.
         For the specific used counts refer to class variables above
         """
-        textlen = TI.word_count(text)
+        textlen = utils.textinit.word_count(text)
         ret_dict = {}
         for wordtype in self.word_type_list:
             ret_dict.update(self.count_words_prepare_dictionary(wordtype[0], 'wordtype', wordtype[1], textlen))
@@ -85,7 +88,8 @@ class ParseAnalyse(TF.Textfeature):
         return ret_dict
 
     def count_words_prepare_dictionary(self, name, tag_column, tags, textlen):
-        """Function that prepares the Dictionaries for the analyse function.
+        """
+        Function that prepares the Dictionaries for the analyse function.
         :param name: The name of the tag, relation or type.
         :param tag_column: The column from the 'parsed' (The type of the name)
         :param tags: One or more names of the syntaxfeatures to check

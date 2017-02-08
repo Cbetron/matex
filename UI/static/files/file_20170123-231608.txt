@@ -1,9 +1,0 @@
-===POCZĄTEK TEKSTU===
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea tak
-===KONIEC TEKSTU===
-Twoja Ocena: 5
-Użyta Metoda: Filtrowany Naiwny Bayes
-Użyty Profil: Ameryka: 8. Klasa (Oceny: 1-6)
-Evidence: xx
-Dokładność Profilu: 61.12%
-Data Korekcji: Mon Jan 23 23:16:43 2017

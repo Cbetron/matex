@@ -13,14 +13,16 @@ import textstat.textstat as TS
 
 
 class SemiColon(Textfeature):
-    """SemiColon is a textfeauture class which analyses the text for good spelling
+    """
+    SemiColon is a textfeauture class which analyses the text for good spelling
     """
     def __init__(self):
         super().__init__()
         self.ts = TS.textstatistics()
 
     def analyse(self, text):
-        """" This is the main function of the semi_colon module which includes all other functions
+        """"
+        This is the main function of the semi_colon module which includes all other functions
         :param text: The text that should be checked
         :return The dictionary with the readability score entries
         See the following dictionary for the names of readability functions

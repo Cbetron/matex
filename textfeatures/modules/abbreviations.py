@@ -10,14 +10,16 @@ __status__ = "rdy"
 
 import textfeatures.databases.manage as DB
 from .textfeature import Textfeature
-import utils.textinit as TI
+import utils.textinit
 
 
 class Abbreviations(Textfeature):
-    """ This class inherits from the Textfeature superclass. It is used for the abbreviation feature
+    """
+    This class inherits from the Textfeature superclass. It is used for the abbreviation feature
     """
     def analyse(self, text):
-        """ This function returns the number of abbreviations in a text using the LookUpList database.
+        """
+        This function returns the number of abbreviations in a text using the LookUpList database.
         :param text: The given text.
         :return dict: The dictionary entry with the number of abbreviations.
         """
@@ -30,5 +32,5 @@ class Abbreviations(Textfeature):
                 pass
             else:
                 abbreviations += 1  # no need to disconnect manually
-        abbreviations = abbreviations / TI.word_count(text)
+        abbreviations = abbreviations / utils.textinit.word_count(text)
         return {"abbreviations": abbreviations}

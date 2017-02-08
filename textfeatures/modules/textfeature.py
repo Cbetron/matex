@@ -10,12 +10,14 @@ __status__ = "dev"
 
 
 class Textfeature(object):
-    """ The superclass of every textfeature class with the analyse function.
+    """
+    The superclass of every textfeature class with the analyse function.
     It is used to get instances of all Subclasses
     """
 
     def analyse(self, text):
-        """ This function is the analyse function of every textfeature, which analyses the text under one specific aspect
+        """
+        This function is the analyse function of every textfeature, which analyses the text under one specific aspect
         :param text: The text to be analysed
         """
         return

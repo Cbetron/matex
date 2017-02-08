@@ -4,23 +4,71 @@
 """textinit.py: This module initializes and organizes the text."""
 
 __copyright__ = "Copyright (C) 2017  The maTex Authors.  All rights reserved."
-__author__ = "Nikodem Kernbach, Raphael Kreft"
-__email__ = "kernbach@phaenovum.de"
+__author__ = "Raphael Kreft, Nikodem Kernbach"
+__email__ = "kernbach@phaenovum.de, raphaelkreft@gmx.de"
 __status__ = "dev"
 
 import string
-import contextlib
+import pickle
 import re
 import sys
 import random
 import os
 import codecs
+import collections
+import copy
 import textract
 import textstat.textstat as TS
+
 import textfeatures.databases.manage as DB
+from utils.datascience import *
+from textfeatures.manager import Manager
+
+
+def trainingset_extraction(trainingset_path):
+    """
+
+    :param trainingset_path:
+    :return:
+    """
+    trainingsets = []
+    if trainingset_path.endswith(".pkl"):
+        with open(trainingset_path, "rb")as file:
+            trainingsets = pickle.load(file)
+    elif os.path.isdir(trainingset_path):
+        TF_Manager = Manager()
+        for tset in getsets(trainingset_path):
+            TF_Manager.set_text(tset[1])
+            trainingsets.append({"grade": tset[0], "features": TF_Manager.run()})
+    return trainingset_treatability(trainingsets)
+
+
+def trainingset_treatability(tset):
+    """
+
+    :param tset:
+    :return:
+    """
+    removedfeatures = []
+    for feature in copy.deepcopy(tset)[0]["features"].keys():
+        values = collections.defaultdict(list)
+        for ts in tset:
+            values[ts["grade"]].append(ts["features"][feature])
+        if any([standartdeviation(values[cls]) == 0 for cls in values.keys()]):
+            removedfeatures.append(feature)
+            for ts in tset:
+                del ts["features"][feature]
+        else:
+            continue
+    return tset, removedfeatures
 
 
 def getsets(path):
+    """
+    Load all raw texts from a given path
+    :param path: read texts from all files in it
+    :return list of lists: [grade, text]
+    """
     try:
         return [[int(file.split("_")[0]), get_raw_text(path + file)] for file in os.listdir(path)]
     except FileNotFoundError:
@@ -29,6 +77,14 @@ def getsets(path):
 
 
 def personal_splice(l, factor, key=False, rand=False):
+    """
+    Make a personal splice from a list
+    :param l: list to make slice from
+    :param factor: Factor which defines the size
+    :param key: if items are dicts -> get items by key
+    :param rand: Shuffle list to make it random
+    :return: personal splice
+    """
     splicesize = round(len(l) * factor)
     if rand:
         random.shuffle(l)
@@ -38,6 +94,14 @@ def personal_splice(l, factor, key=False, rand=False):
 
 
 def check_occurrences(l, occuring, template, key=""):
+    """
+
+    :param l:
+    :param occuring:
+    :param template:
+    :param key:
+    :return:
+    """
     if key:
         l = [item[key] for item in l]
     for i in template:
@@ -47,6 +111,14 @@ def check_occurrences(l, occuring, template, key=""):
 
 
 def check_treatability(l, occuring, template, occurekey=False):
+    """
+
+    :param l:
+    :param occuring:
+    :param template:
+    :param occurekey:
+    :return:
+    """
     if occurekey:
         l = [item[occurekey] for item in l]
     for cls in template:
@@ -56,11 +128,24 @@ def check_treatability(l, occuring, template, occurekey=False):
 
 
 def personal_list_split(l, factor, occuring, template, occurekey=False, selectkey=False):
+    """
+    Split a List into two slices, both of them will be userdefined with following Parameters
+    :param l: The list to be splitted
+    :param factor: Factor which defines the size of the first splice Bsp: 0.7 = 70%
+    :param occuring: defines how many items from one template-item have to be in splice_one
+    :param template: a list of occurings that will be checked
+    :param occurekey: if the items in template are packed in a dict you need to define a key
+    :param selectkey: make splices with items extracting from l by a key
+    :returns splice_one: a list which fits the requirements splice_two: the rest of list l(also fits the requirements)
+    """
     splice_one = []
     splice_two = []
     if not check_treatability(l, occuring, template, occurekey):
         raise ValueError
-    while not check_occurrences(splice_one, occuring, template, key=occurekey) and not check_occurrences(splice_two, occuring, template, key=occurekey):
+    while not check_occurrences(splice_one, occuring, template, key=occurekey) and not check_occurrences(splice_two,
+                                                                                                         occuring,
+                                                                                                         template,
+                                                                                                         key=occurekey):
         splice_one = personal_splice(l, factor, rand=True, key=selectkey)
         if selectkey:
             splice_two = [item[selectkey] for item in l if item not in splice_one]
@@ -70,11 +155,20 @@ def personal_list_split(l, factor, occuring, template, occurekey=False, selectke
 
 
 def personal_list(l, factor, occuring, template, occurekey=False):
+    """
+    Split a List into two slices, one of them will be userdefined with following Parameters
+    :param l: The list to be splitted
+    :param factor: Factor which defines the size of the first splice Bsp: 0.7 = 70%
+    :param occuring: defines how many items from one template-item have to be in splice_one
+    :param template: a list of occurings that will be checked
+    :param occurekey: if the items in template are packed in a dict you need to define a key
+    :returns splice_one: a list which fits the requirements rest: the rest of list l
+    """
     splice_one = []
     if not check_treatability(l, occuring / 2, template, occurekey):
         raise ValueError
     while not check_occurrences(splice_one, occuring, template, key="grade"):
-        splice_one = random.sample(l, int(len(l)*factor))
+        splice_one = random.sample(l, int(len(l) * factor))
     rest = [item for item in l if item not in splice_one]
     return splice_one, rest
 
@@ -92,9 +186,8 @@ def get_raw_text(filepath):
         return text
     else:
         try:
-            with contextlib.closing(open(filepath, 'r')) as file:
-                text = codecs.open(filepath, encoding="utf-8-sig").read()
-                return text
+            text = codecs.open(filepath, encoding="utf-8-sig").read()
+            return text
         except ValueError:
             print("Trainingssets have to be encoded in unicode!")
 
@@ -122,7 +215,8 @@ def get_sentence_generator(text):
     wordlist = re.split(' |%,%,%', text)
     for i in range(len(wordlist)):
         if wordlist[i] in abbreviations:
-            print('word is an abbreviation, doing nothing...')
+            #print('word is an abbreviation, doing nothing...')
+            pass
         else:
             if '.' in wordlist[i]:
                 wordlist[i] += '\n'
@@ -138,12 +232,9 @@ def get_sentence_generator(text):
 
 
 def word_count(text):
+    """
+    Count words in a string
+    :param text: string to be analysed
+    :return Count of words as int
+    """
     return TS.textstat.lexicon_count(text)
-
-
-if __name__ == "__main__":
-    print(check_occurences(
-        [[0, 'd'], [0, 'df'], [0, 'dd'], [1, 'f'], [1, 'fd'], [1, 'gg'], [2, 'wq'], [2, 'qa'], [2, 'dsa']],
-        [[0, 'd'], [0, 'df'], [0, 'dd'], [1, 'f'], [1, 'fd'], [1, 'gg'], [2, 'wq'], [2, 'qa'], [2, 'dsa']], 2,
-        range(3)))
-    print([range(3)])

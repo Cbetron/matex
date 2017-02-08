@@ -31,7 +31,7 @@ def parse_arguments():
                                          formatter_class=argparse.RawDescriptionHelpFormatter,
                                          usage="%(prog) [options]",
                                          epilog="For More Information look at the Readme!")
-    # Argumente HinzufÃ¼gen
+    # Argumente Hinzufügen
     arg_parser.add_argument("-log", default=False, action='store_true', help="Give this Argument to activate logging")
     arg_parser.add_argument("-gui", action='store_true', help="give this Argument to use the Graphical-Userinterface")
     args = arg_parser.parse_args()
@@ -99,7 +99,7 @@ if __name__ == "__main__":
             elif command == "training":
                 """The Training Mode"""
                 execute("./Scripts/training.py")
-            elif command == "dset-val":
+            elif command == "validation":
                 """Validate a Dataset"""
                 execute("./Scripts/validation_dataset.py")
             elif command == "script":

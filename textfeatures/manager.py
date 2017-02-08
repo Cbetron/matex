@@ -8,7 +8,7 @@ __author__ = "Raphael Kreft"
 __email__ = "raphaelkreft@gmx.de"
 __status__ = "dev"
 
-from textfeatures.parsing.parser import parse
+import textfeatures.parsing.parser as PRS
 from utils.pdfcreator import PDF
 from textfeatures.modules.textfeature import Textfeature
 from textfeatures.modules import wordLength
@@ -43,7 +43,7 @@ class Manager(object):
         for feature in self.features:
             tempergs = feature().analyse(self.text)
             if tempergs is None:
-                print("Keine Daten fÃ¼r Feature {}".format(feature))
+                print("Keine Daten für Feature {}".format(feature))
                 continue
             keys = list(tempergs.keys())
             for key in keys:
@@ -56,7 +56,7 @@ class Manager(object):
 
     def set_text(self, text):
         self.text = text
-        parse(text)
+        PRS.parse(text)
         if self.pdf:
             self.pdf.insert_text(self.text)
 

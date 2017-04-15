@@ -61,18 +61,20 @@ python Pakete für ihre Python 2 Distribution! Installieren sie auch bazel!
 **Achtung:** Überspringen sie das erneute klonen des Syntaxnet Archivs! (Den Befehl ` git clone `...) 
 Kehren sie danach in den Ordner ` /parsing/ ` zurück.
 
-> 4: Konfigurieren sie Syntaxnet zur Verwendung mit maTex indem sie die die Datei ` setup_parser.py ` ausführen:
+> 4: Installieren sie die für maTex benötigten Pakete: (Installieren sie pip3, falls sie es nicht bereits installiert haben)
 
-    python3 setup_parser.py
-
-> 5: Installieren sie die für maTex benötigten Pakete: (Installieren sie pip3, falls sie es nicht bereits installiert haben)
-
+    sudo apt-get install enchant
     sudo apt-get install python3-pip
     pip3 install numpy
     pip3 install textstat
-    pip3 install pyenchant
+    pip3 install pyenchant  #sudo, falls es ohne nicht funktioniert
     pip3 install flask
     pip3 install textract
+    pip3 install reportlab
+    
+> 5: Konfigurieren sie Syntaxnet zur Verwendung mit maTex indem sie die die Datei ` setup_parser.py ` ausführen:
+
+    python3 setup_parser.py
 
 > 6: Nun können sie die Datei `main.py` benutzen. Gehen sie dazu zurück in den Ordner `/matex/` .
 
